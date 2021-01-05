@@ -1,0 +1,22 @@
+debug: true
+
+server:
+    contextPath: /tmp
+
+azure:
+  cosmosdb:
+    databaseName: philly-mininote
+    uri: https://<YOU-DB-NAME>.documents.azure.com:443/
+    key:
+    secondaryKey:
+    populateQueryMetrics: true
+
+spring:
+  servlet: #optional
+    multipart:
+      max-file-size: 1048576KB
+      max-request-size: 1048576KB
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftlh
+
