@@ -15,7 +15,7 @@ spec:
         app: mininote
     spec:
       containers:
-        - name: app
+        - name: mininote-java
           image: helayoty/mininote-java:1.0.0
           ports:
             - containerPort: 8080
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mininote
+  name: mininote-service
 spec:
   selector:
     app: mininote
   ports:
-    - port: 80
+    - port: 8080
       targetPort: 8080
-  type: LoadBalancer
+  type: ClusterIP

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="tachyons.min.css">
 </head>
 <body class="ph3 pt0 pb4 mw7 center sans-serif">
-    <h1 class="f2 mb0"><span class="gold">k</span>note</h1>
+    <h1 class="f2 mb0"><span class="gold">Mini</span>Note</h1>
     <p class="f5 mt1 mb4 lh-copy">A Quick Mini Note app.</p>
     <form action="/note" method="POST" enctype="multipart/form-data">
         <ol class="list pl0">
