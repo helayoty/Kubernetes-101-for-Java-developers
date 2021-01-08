@@ -8,7 +8,7 @@ spec:
   rules:
   - http:
       paths:
-        - path: /
+        - path: /mininote
           backend:
             serviceName: mininote-service
             servicePort: 8080
