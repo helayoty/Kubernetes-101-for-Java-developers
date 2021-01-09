@@ -1,0 +1,35 @@
+# Deployment YAML definition
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mininote-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mininote-v2
+  template:
+    metadata:
+      labels:
+        app: mininote-v2
+    spec:
+      containers:
+        - name: mininote-java-v2
+          image: helayoty/mininote-java:2.0.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
+# Service YAML definition
+apiVersion: v1
+kind: Service
+metadata:
+  name: mininote-new
+spec:
+  selector:
+    app: mininote-v2
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
