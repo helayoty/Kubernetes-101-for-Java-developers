@@ -8,9 +8,13 @@ spec:
   rules:
   - http:
       paths:
-        - path: /mininote
+        - path: /mininote-v1
           backend:
             serviceName: mininote-service
+            servicePort: 8080
+        - path: /mininote-v2
+          backend:
+            serviceName: mininote-new
             servicePort: 8080
 
 
