@@ -19,7 +19,6 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<azure.spring.data.cosmos.version>3.0.0</azure.spring.data.cosmos.version>
 	</properties>
 
 	<dependencies>
@@ -43,13 +42,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency>
-
-		<!-- Azure -->
-		<dependency>
-			<groupId>com.azure</groupId>
-			<artifactId>azure-spring-data-cosmos</artifactId>
-			<version>${azure.spring.data.cosmos.version}</version>
 		</dependency>
 
 		<!-- others -->
