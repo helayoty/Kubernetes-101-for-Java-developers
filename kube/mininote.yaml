@@ -20,6 +20,9 @@ spec:
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/dev
 ---
 # Service YAML definition
 apiVersion: v1
@@ -32,4 +35,4 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer

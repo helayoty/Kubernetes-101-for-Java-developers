@@ -1,17 +1,12 @@
-debug: true
+debug: false
 
 server:
     contextPath: /tmp
 
-azure:
-  cosmosdb:
-    databaseName: philly-mininote
-    uri: https://philly-mininote.documents.azure.com:443/
-    key: mSDbXG6ZHxqEa3ZNT0YxLnuABYRHlDgU9XdrsQFItVmGtVYKHiLFqyqTdrORQcvbhla1HCQtGzR9NlIlTdBRUg==
-    secondaryKey: HzqN611uFiHYUU9AcuupKHjnzpamx0pLF6BlDxnw3ozSdwcdpqE0iR9GGmz27CAtZxUn3XL3LqFlYn7YaB2EHw==
-    populateQueryMetrics: true
-
 spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URL:mongodb://localhost:27017/dev}
   servlet: #optional
     multipart:
       max-file-size: 1048576KB
@@ -19,11 +14,4 @@ spring:
   freemarker:
     template-loader-path: classpath:/templates
     suffix: .ftlh
-
-management:
-  endpoint:
-    health:
-      probes:
-        enabled: true
-      show-details: always
 

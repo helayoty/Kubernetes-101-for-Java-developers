@@ -43,4 +43,12 @@ public class MiniNoteController {
         }
         return "index";
     }
+
+    @PostMapping("/delete")
+    public String deleteMiniNote(@RequestParam String mininoteid,
+                                 Model model) {
+        miniNoteService.deleteMiniNote(mininoteid, model);
+        miniNoteService.getAllNotes(model);
+        return "index";
+    }
 }

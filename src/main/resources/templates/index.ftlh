@@ -28,13 +28,18 @@
     <ul class="list pl0"><p class="f6 b db mb2">You Mini Notes:</p>
         <#if mininotes??>
         <#list mininotes as mininote>
-
+         <form action="/delete" method="POST" enctype="multipart/form-data">
         <li class="mv3 bb bw2 b--light-yellow bg-washed-yellow ph4 pv2"><p class="measure"></p>
-            <p> <#noautoesc> ${mininote} </#noautoesc></p>
-            <p></p>
+                <p> <#noautoesc>
+                    <input type="hidden" value='${mininote.id}' name="mininoteid" > ${mininote}
+                 </#noautoesc></p>
+
+            <p><input class="f6 link dim br1 ba bw1 ph3 pv2 mb2 dib black bg-white pointer" type="submit" value="delete"
+                                  name="delete"></p>
         </li>
+        </form>
         <#else>
-        <p class="lh-copy f6">You don't have any mininotes yet.</p>
+        <p class="lh-copy f6">You don't have any <span class="gold">Mini</span>Note yet!</p>
     </#list>
     </#if>
     </ul>

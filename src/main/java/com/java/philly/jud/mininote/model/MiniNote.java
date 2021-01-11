@@ -1,12 +1,12 @@
 package com.java.philly.jud.mininote.model;
 
-import com.azure.spring.data.cosmos.core.mapping.Container;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 @Setter
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-@Container(containerName = "MiniNote", ru = "400")
+@Document(collection = "MiniNote")
 public
 class MiniNote {
 
