@@ -16,7 +16,8 @@ cd java-kubernetes
 mvn clean install
 ```
 
-**Set MongoDB connection **
+**Set MongoDB connection**
+
 ```bash
 cd src/main/resources
 vim application.yml
