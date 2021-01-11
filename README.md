@@ -16,16 +16,16 @@ cd java-kubernetes
 mvn clean install
 ```
 
-**Set CosmosDB connection variables**
+**Set MongoDB connection **
 ```bash
 cd src/main/resources
 vim application.yml
 ```
-Update the following variables with your DB ones
-
 ```yaml
-
-
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URL:mongodb://localhost:27017/dev}
 ```
 
 **Run application**
@@ -74,9 +74,7 @@ Create a Dockerfile:
 
 ```bash
 docker build -t mininote-java .
-
 ```
-
 Create Docker network
 ```bash
 docker network create mininote
@@ -87,9 +85,9 @@ Run mongoDB inside docker
 docker run --name=mongo --rm --network=mininote mongo
 ```
 
-Create and run the application container
+Run the application container
 ```bash
-docker run --name=mininote-java --rm --network=mininote -p 8080:8080 -e MONGO_URL=mongodb://mongo:27017/dev <your-dockerhub-username>/mininote-java:1.0.0
+docker run --name=mininote-java --rm --network=mininote -p 8080:8080 -e MONGO_URL=mongodb://mongo:27017/dev mininote-java:1.0.0
 ```
 
 **Check**
@@ -153,11 +151,9 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 
 ### deploy your app
 ```bash
-cd kube
+cd charts
 
-kubectl apply -f mininote.yaml
-
-kubectl apply -f mongo.yaml
+helm install philly-note philly-note
 ```
 
 ### verify pod is up and running
@@ -172,6 +168,6 @@ kubectl get service
 
 **Check**
 ```bash
-http://<service_IP>
+http://<ingress_controller_IP>
 ```
 
