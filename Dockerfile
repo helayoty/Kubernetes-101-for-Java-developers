@@ -4,6 +4,7 @@ FROM  openjdk:11.0-jre-slim
 
 #Set the working directory
 WORKDIR /opt
+RUN groupadd -r demo && useradd -r -s /bin/false -g demo demo
 #Use to set any env variables
 ENV PORT 8080
 EXPOSE 8080
