@@ -1,6 +1,5 @@
 package com.java.philly.jud.mininote.model;
 
-import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,6 @@ public
 class MiniNote {
 
     @Id
-    @PartitionKey
     private String id;
     private String description;
 
